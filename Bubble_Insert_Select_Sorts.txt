@@ -1,0 +1,93 @@
+package MyObj;
+
+/**
+ * Created by ִלטענטי on 15.10.2016.
+ */
+public class ClassArray
+{
+    private
+        int [] arr;
+        int nElems;
+    public
+        ClassArray(int size)
+        {
+            arr = new int[size];
+            nElems = 0;
+        }
+
+        void insert(int value)
+        {
+            arr[nElems] = value;
+            nElems++;
+        }
+
+        void display()
+        {
+            for(int i = 0; i < nElems; i++)
+            {
+                System.out.println("arr[" + arr[i] + "]");
+            }
+        }
+
+        void bubbleSort()
+        {
+            int i,j;
+            for(j = nElems; j > 1; j-- )
+            {
+                for(i = 0; i < j; i++)
+                {
+                    if( arr[i] > arr[i+1])
+                    {
+                        int tmp = arr[i];
+                        arr[i] = arr[i+1];
+                        arr[i+1] = tmp;
+                    }
+                }
+            }
+        }
+
+        void selectionSort()
+        {
+            int i;
+            int j;
+            int min;
+            for(j = 0; j < nElems - 1; j++)
+            {
+                min = j;
+                for(i= j+1; i < nElems; i++)
+                {
+                    if(arr[i] < arr[min])
+                    {
+                        min = i;
+                    }
+                }
+                swap(j,min);
+            }
+        }
+
+        void insertionSort()
+        {
+            int i;
+            int j;
+            for( j = 1; j < nElems; j++)
+            {
+                int tmp = arr[j];
+                i = j;
+                while(i>0 && arr[i-1] >= tmp)
+                {
+                    arr[i] = arr[i-1];
+                    i--;
+                }
+                arr[i] = tmp;
+            }
+        }
+
+    void swap(int a, int b)
+    {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
+}
+
+
